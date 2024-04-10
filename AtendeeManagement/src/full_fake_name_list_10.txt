@@ -1,0 +1,10 @@
+Benjamin Watson&Sales&HR
+John Rodriguez&Sales&HR
+Megan Lopez&Sales&HR
+Cynthia Wolfe&Sales&EMPLOYEE
+Jill Clayton MD&Sales&EMPLOYEE
+James Ayala&Sales&HEAD
+Jesse Robinson&Sales&HEAD
+Savannah White&Sales&HR
+Kristine Roberts&Sales&EMPLOYEE
+Timothy Adams&Marketing&EMPLOYEE
