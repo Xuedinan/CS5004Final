@@ -16,7 +16,7 @@ public class DoublyLinkedList<T> {
             this.next = next;
         }
     }
-
+    
     protected Node<T> llHead; // head sentinel of linked list
     protected Node<T> llTail; // tail sentinel of linked list
 
@@ -46,7 +46,7 @@ public class DoublyLinkedList<T> {
             return -1; // return to -1 when not find
         }
         // check if name is matching
-        if (((People) currentNode.people).getName().equals(target.getName())) {
+        if (((People) currentNode.people).getName().trim().replaceAll("\\s+", " ").equalsIgnoreCase(target.getName().trim().replaceAll("\\s+", " "))) {
             return currentIndex;
         }
         // recursive check next
@@ -124,7 +124,11 @@ public class DoublyLinkedList<T> {
     public void printList() {
         Node<T> current = llHead.next;
         while (current != llTail) {
-            System.out.println(current.people); // Using toString() for printing
+            // only print out non-null people
+            if (current.people != null) {
+                System.out.println(current.people);
+            }
+             // Using toString() for printing
             current = current.next;
         }
     }

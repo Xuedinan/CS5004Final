@@ -1,14 +1,16 @@
-import java.util.ArrayList;
-import java.util.function.Predicate;
-
 public interface HRTool<T> {
-    
-    void addHead();
-    void removeHead();
+    // promote employee to HEAD
+    void addHead(People employee);
+    // demote HEAD to employee
+    void removeHead(People employee);
+    // generate all head list from whole company employee list
     void createHeadList();
+    // get whole company's attendees
     void checkAllAttendees();
-    Predicate<T> filterLevel();
+    // get all employee with certain company wise
+    DoublyLinkedList<T> filterAllByLevel(PeopleType type);
+    // get whole employee number
     int totalCompanyEmployees();
-    double calculateDepartNum();
-    DoublyLinkedList<T> filterByDepartment();
+    //get each department employees
+    DoublyLinkedList<T> filterByDepartment(DepartType type);
 }

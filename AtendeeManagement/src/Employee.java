@@ -46,10 +46,28 @@ public class Employee extends People {
     protected void setName(String name) {
         this.name = name;
     }
-    
+
     @Override
     public String toString(){
-        return ("name: " + name + "\nDepartment: " + department + "\nLevel: " + peopleType);
+        if (date == null) {
+            return ("name: " + name + "\nDepartment: " + department + "\nLevel: " + peopleType + "\n");
+        }
+        else{
+            return ("name: " + name + "\nDepartment: " + department + "\nLevel: " + peopleType + "\nAttended date: " + date + "\n");
+        }
+    }
+
+    @Override
+    protected void makeAttendance(DoublyLinkedList<People> attendees) {
+        try {
+            if (date != null) {
+                attendees.addLast(this);
+            } else{
+                System.out.println("Can't make attendance without date. ");
+            }
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Can't make attendance without date. ");
+        }
     }
 
 

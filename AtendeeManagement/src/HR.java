@@ -5,9 +5,9 @@ import java.util.function.Predicate;
 
 public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRTool<T>{
 
-    DoublyLinkedList<T> people;
-    DoublyLinkedList<T> attendees;
-    ArrayList<People> headList = new ArrayList<>();
+    protected DoublyLinkedList<T> people;
+    protected DoublyLinkedList<T> attendees;
+    protected ArrayList<People> headList = new ArrayList<>();
 
     private String name;
     private DepartType department;
@@ -16,9 +16,12 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
 
     public HR(String name, DepartType department, Date date, PeopleType peopleType, DoublyLinkedList<T> people, DoublyLinkedList<T> attendees) {
         super(name, department, date, peopleType);
+        this.name = name;
+        this.date = date;
+        this.department = department;
+        this.peopleType = peopleType;
         this.people = people;
         this.attendees = attendees;
-        // this.headList = headList;
     }
 
     // getters for HR itself
@@ -170,41 +173,66 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
     
     ///////////////////////
 
+    // provide a employee to department head
     @Override
-    public void addHead() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addHead'");
+    public void addHead(People employee) {
+        // check if input employee is existing in head list
+        boolean isHeadAlready = headList.stream()
+                                        .anyMatch(person -> person.getName().equals(employee.getName()));
+        // if exist, can't add
+        if (isHeadAlready) {
+            System.out.println(employee.getName() + " is a department HEAD already");
+        } else {
+            employee.peopleType = PeopleType.HEAD;
+            headList.add(employee); // add to head list
+            System.out.println("Added " + employee.name + " to HEAD list. ");
+        }
     }
+    // remove head from list
     @Override
-    public void removeHead() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeHead'");
+    public void removeHead(People employee) {
+        int headIndex = findHeadIndex(employee);
+        // person not found
+        if (headIndex == -1) {
+            System.out.println(employee.getName() + " is not a department head, can't remove.");
+        } else {
+            // remove head
+            headList.remove(headIndex);
+            System.out.println("Removed " + employee.getName() + " from HEAD list.");
+        }
     }
+    // helper method to get index of head list
+    private int findHeadIndex(People employee) {
+        for (int i = 0; i < headList.size(); i++) {
+            // return index when we found person
+            if (headList.get(i).getName().equals(employee.getName())) {
+                return i;
+            }
+        }
+        // return -1 when not found
+        return -1;
+    }
+    // get all attendees for whole company
     @Override
     public void checkAllAttendees() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'checkAllAttendees'");
+        attendees.printList();
     }
+    // get all employee by certain level
     @Override
-    public Predicate<T> filterLevel() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'filterLevel'");
+    public DoublyLinkedList<T> filterAllByLevel(PeopleType type) {
+        Predicate<T> isLevel = employee -> ((People) employee).getPeopleType().equals(type);
+        return people.filterByPredicate(isLevel);
     }
+    // get total employee numbers
     @Override
     public int totalCompanyEmployees() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'totalCompanyEmployees'");
-    }
-    @Override
-    public double calculateDepartNum() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calculateDepartNum'");
+        return people.countNodes();
     }
 
     @Override
-    public DoublyLinkedList<T> filterByDepartment() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'filterByDepartment'");
+    public DoublyLinkedList<T> filterByDepartment(DepartType type) {
+        Predicate<T> isDepart = employee -> ((People) employee).getDepartment().equals(type);
+        return people.filterByPredicate(isDepart);
     }
     // create a ArrayList with head only
     @Override
@@ -219,10 +247,34 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
             // check next node
             current = current.next;
         }
+    }
+
+    public void printCurrentHead(){
         for (int i = 0; i < headList.size(); i++) {
-            System.out.println(headList.get(i).name + " is HEAD of " + headList.get(i).department);
+        System.out.println(headList.get(i).name + " is HEAD of " + headList.get(i).department); 
+       }
+    }
+
+    @Override
+    protected void makeAttendance(DoublyLinkedList<People> attendees) {
+        try {
+            if (date != null) {
+                attendees.addLast(this);
+            } else{
+                System.out.println("Can't make attendance without date. ");
+            }
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Can't make attendance without date. ");
         }
     }
-    
 
+    @Override
+    public String toString(){
+        if (date == null) {
+            return ("name: " + name + "\nDepartment: " + department + "\nLevel: " + peopleType + "\n");
+        }
+        else{
+            return ("name: " + name + "\nDepartment: " + department + "\nLevel: " + peopleType + "\nAttended date: " + date + "\n");
+        }
+    }
 }

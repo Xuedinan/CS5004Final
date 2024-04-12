@@ -25,5 +25,6 @@ public abstract class People {
     protected abstract PeopleType getPeopleType();
     protected abstract DepartType getDepartment();
     protected abstract Date getDate();
+    protected abstract void makeAttendance(DoublyLinkedList<People> attendees);
 
 }

@@ -7,4 +7,14 @@ James Ayala&Sales&HEAD
 Jesse Robinson&Sales&HEAD
 Savannah White&Sales&HR
 Kristine Roberts&Sales&EMPLOYEE
-Timothy Adams&Marketing&EMPLOYEE
+Timothy Adams&Marketing&HEAD
+Sara Pope&HRDEPART&EMPLOYEE
+William Hernandez&HRDEPART&EMPLOYEE
+Carla Miller&SALES&EMPLOYEE
+Bonnie Morrison&SALES&HEAD
+Carl Castillo&SALES&EMPLOYEE
+Karen Carey&HRDEPART&EMPLOYEE
+Christian Larson&MARKETING&HEAD
+Crystal Johnson&HRDEPART&EMPLOYEE
+Nicholas Clark&SALES&EMPLOYEE
+Kelly Richmond&MARKETING&EMPLOYEE

@@ -13,6 +13,10 @@ public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T
 
     public DepartHead(String name, DepartType department, Date date, PeopleType peopleType, DoublyLinkedList<T> people, DoublyLinkedList<T> attendees) {
         super(name, department, date, peopleType);
+        this.name = name;
+        this.date = date;
+        this.department = department;
+        this.peopleType = peopleType;
         this.people = people;
         this.attendees = attendees;
     }
@@ -123,11 +127,6 @@ public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T
         }
     }
 
-    
-    @Override
-    public String toString(){
-        return ("name: " + name + "\nDepartment: " + department + "\nLevel: " + peopleType);}
-
     // get all employee in the same department
     @Override
     public DoublyLinkedList<T> filterOwnDepartment() {
@@ -209,6 +208,29 @@ public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T
     public int totalDepartEmployees() {
         Predicate<T> isDepart = employee -> ((People) employee).getDepartment().equals(department);
         return people.countNodesByPredicate(isDepart);
+    }
+
+    @Override
+    protected void makeAttendance(DoublyLinkedList<People> attendees) {
+        try {
+            if (date != null) {
+                attendees.addLast(this);
+            } else{
+                System.out.println("Can't make attendance without date. ");
+            }
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Can't make attendance without date. ");
+        }
+    }
+
+    @Override
+    public String toString(){
+        if (date == null) {
+            return ("name: " + name + "\nDepartment: " + department + "\nLevel: " + peopleType + "\n");
+        }
+        else{
+            return ("name: " + name + "\nDepartment: " + department + "\nLevel: " + peopleType + "\nAttended date: " + date + "\n");
+        }
     }
     
 }
