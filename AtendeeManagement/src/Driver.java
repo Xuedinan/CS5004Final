@@ -24,6 +24,10 @@
         - AnalysisTool Interface (Head and HR)
         - HRTool Interface (HR)
 
+    - People only in the company employees list can make a attendance
+        - company employee list, don't has Date
+        - attendees list, has Date
+
     - Generic Double linked list class and Operation Class
         - DoublyLinkedList Class
         - AttendanceTool Class
@@ -34,7 +38,7 @@
 
 /*
     Demo Process;
-    
+
     1. 
 
  */
