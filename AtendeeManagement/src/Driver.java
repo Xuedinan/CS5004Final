@@ -6,7 +6,7 @@
  */
 
 // ====>  The major goal of whole program is to track each employee's attendance of the whole company employees. <====
-// ====>                       People has Date attribute means they made a attendance                            <====
+// ====>                       People have Date attribute means they made an attendance                          <====
 
 /*  
     The key features are;
@@ -19,18 +19,18 @@
         - People Abstract Classes
             - Children: Employee, DepartHead, HR
 
-    - Different accessibility 1.Employee (general), 2.Department Head (high), 3.HR (top) for decoupling
+    - Different accessibility 1.Employee (general), 2.Department Head (high), 3.HR (top) for decoupling, SOLID
         - HeadTool Interface (Head and HR)
         - AnalysisTool Interface (Head and HR)
         - HRTool Interface (HR)
 
     - People only in the company employees list can make a attendance
-        - company employee list, don't has Date
-        - attendees list, has Date
+        - Company employee list, doesn't has Date
+        - Attendees list, has Date
 
     - Generic Double linked list class and Operation Class
         - DoublyLinkedList Class
-        - AttendanceTool Class
+        - AttendanceTool Class, MVC
 
     - Covered different concepts (Inheritance, Polymorphism, Composition, Abstraction, 
                                     Recursion, High-Order, Lambda, ADT, Filter, Equality, Stream, MVC, Defensive Programming, I/O)
