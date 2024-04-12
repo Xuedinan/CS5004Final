@@ -1,12 +1,20 @@
 import java.util.ArrayList;
 import java.util.function.Predicate;
+/*
+ * Course: CS5004
+ * Semester: Spring 2024
+ * Assignment: Final
+ * Name: Xuedinan Gao
+ */
 
-// import org.w3c.dom.Node;
-
+// HR class, has the biggest power to operate whole company employees, include head
 public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRTool<T>{
-
+    
+    // list to hold whole company employees
     protected DoublyLinkedList<T> people;
+    // list to hold attendees
     protected DoublyLinkedList<T> attendees;
+    // array to hold all department HEAD only
     protected ArrayList<People> headList = new ArrayList<>();
 
     private String name;
@@ -14,6 +22,7 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
     private PeopleType peopleType;
     private Date date;
 
+    // constructor
     public HR(String name, DepartType department, Date date, PeopleType peopleType, DoublyLinkedList<T> people, DoublyLinkedList<T> attendees) {
         super(name, department, date, peopleType);
         this.name = name;
@@ -35,8 +44,6 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
     protected PeopleType getPeopleType() {return peopleType;}
     @Override
     public void setName(String name) {this.name = name;}
-
-    ///////////////////////
 
     // check HR department employees
     @Override
@@ -171,8 +178,6 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
         }
     }
     
-    ///////////////////////
-
     // provide a employee to department head
     @Override
     public void addHead(People employee) {
@@ -228,7 +233,7 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
     public int totalCompanyEmployees() {
         return people.countNodes();
     }
-
+    // filter people by given department
     @Override
     public DoublyLinkedList<T> filterByDepartment(DepartType type) {
         Predicate<T> isDepart = employee -> ((People) employee).getDepartment().equals(type);
@@ -249,12 +254,14 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
         }
     }
 
+    // print current HEAD in the head array list
     public void printCurrentHead(){
         for (int i = 0; i < headList.size(); i++) {
         System.out.println(headList.get(i).name + " is HEAD of " + headList.get(i).department); 
        }
     }
 
+    // make attendance for HR itself
     @Override
     protected void makeAttendance(DoublyLinkedList<People> attendees) {
         try {
@@ -267,7 +274,7 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
             throw new IllegalArgumentException("Can't make attendance without date. ");
         }
     }
-
+    // tostring can print out head with date or without date (haven't made attendance yet)
     @Override
     public String toString(){
         if (date == null) {

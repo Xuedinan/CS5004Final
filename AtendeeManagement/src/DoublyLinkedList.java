@@ -1,7 +1,12 @@
-// import java.util.Iterator;
-
 import java.util.function.Predicate;
+/*
+ * Course: CS5004
+ * Semester: Spring 2024
+ * Assignment: Final
+ * Name: Xuedinan Gao
+ */
 
+ // Generic doubly linked list class
 public class DoublyLinkedList<T> {
 
     // node inner class to store value
@@ -10,6 +15,7 @@ public class DoublyLinkedList<T> {
         T people; // people
         Node<T> next; // next node
 
+        // constructor
         public Node(DoublyLinkedList.Node<T> prev, T people, DoublyLinkedList.Node<T> next) {
             this.prev = prev;
             this.people = people;
@@ -30,7 +36,6 @@ public class DoublyLinkedList<T> {
     }
 
     // find index for input people name by recursion
-
     public int findIndexByPeople(People target) {
         // start searching
         int index = recursiveFindIndexByPeople(target, llHead.next, 0);
@@ -39,7 +44,7 @@ public class DoublyLinkedList<T> {
         }
         return index;
     }
-
+    // helper method to check each node
     private int recursiveFindIndexByPeople(People target, Node<T> currentNode, int currentIndex) {
         // base case when reach to tail
         if (currentNode == llTail) {

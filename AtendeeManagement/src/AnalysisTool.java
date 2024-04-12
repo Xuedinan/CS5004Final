@@ -1,3 +1,10 @@
+/*
+ * Course: CS5004
+ * Semester: Spring 2024
+ * Assignment: Final
+ * Name: Xuedinan Gao
+ */
+
 public interface AnalysisTool<T> {
 
 	// checking for expiration date

@@ -1,3 +1,11 @@
+/*
+ * Course: CS5004
+ * Semester: Spring 2024
+ * Assignment: Final
+ * Name: Xuedinan Gao
+ */
+
+// This is abstract class, children is Employee, DepartHead, HR
 public abstract class People {
     
     protected String name;
@@ -19,12 +27,13 @@ public abstract class People {
         this.department = department;
         this.peopleType = peopleType;
     }
-
+    // getters
     protected abstract String getName();
     protected abstract void setName(String name);
     protected abstract PeopleType getPeopleType();
     protected abstract DepartType getDepartment();
     protected abstract Date getDate();
+    // make attendance for employee itself
     protected abstract void makeAttendance(DoublyLinkedList<People> attendees);
 
 }

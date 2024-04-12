@@ -10,7 +10,8 @@ import java.io.FileWriter;
  * Name: Xuedinan Gao
  */
 
-// This is the class to help read employees from file to create linked list and write employee into file with correct format
+// This is the class to help read employees, attendees from file to create linked list 
+// and write updated attendee list into file with correct format
 
 public class AttendanceTool {
 	

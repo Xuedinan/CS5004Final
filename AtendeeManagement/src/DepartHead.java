@@ -1,8 +1,17 @@
 import java.util.function.Predicate;
+/*
+ * Course: CS5004
+ * Semester: Spring 2024
+ * Assignment: Final
+ * Name: Xuedinan Gao
+ */
 
+// Department Head class, can only operate employee in the same department
 public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T> {
 
+    // list to hold whole company employees
     DoublyLinkedList<T> people;
+    // list to hold attendees
     DoublyLinkedList<T> attendees;
 
     private String name;
@@ -10,7 +19,7 @@ public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T
     private PeopleType peopleType;
     private Date date;
 
-
+    // constructor
     public DepartHead(String name, DepartType department, Date date, PeopleType peopleType, DoublyLinkedList<T> people, DoublyLinkedList<T> attendees) {
         super(name, department, date, peopleType);
         this.name = name;
@@ -210,6 +219,7 @@ public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T
         return people.countNodesByPredicate(isDepart);
     }
 
+    // for this head to make a attendance for itself
     @Override
     protected void makeAttendance(DoublyLinkedList<People> attendees) {
         try {
@@ -222,7 +232,7 @@ public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T
             throw new IllegalArgumentException("Can't make attendance without date. ");
         }
     }
-
+    // tostring can print out head with date or without date (haven't made attendance yet)
     @Override
     public String toString(){
         if (date == null) {

@@ -1,4 +1,43 @@
-import java.util.ArrayList;
+/*
+ * Course: CS5004
+ * Semester: Spring 2024
+ * Assignment: Final
+ * Name: Xuedinan Gao
+ */
+
+// ====>  The major goal of whole program is to track each employee's attendance of the whole company employees. <====
+// ====>                       People has Date attribute means they made a attendance                            <====
+
+/*  
+    The key features are;
+
+    - Three different department (Sales, Marketing, HR)
+        - DepartType ENUM
+
+    - Three different level people (Employee, Department Head, HR)
+        - PeopleType ENUM
+        - People Abstract Classes
+            - Children: Employee, DepartHead, HR
+
+    - Different accessibility 1.Employee (general), 2.Department Head (high), 3.HR (top) for decoupling
+        - HeadTool Interface (Head and HR)
+        - AnalysisTool Interface (Head and HR)
+        - HRTool Interface (HR)
+
+    - Generic Double linked list class and Operation Class
+        - DoublyLinkedList Class
+        - AttendanceTool Class
+
+    - Covered different concepts (Inheritance, Polymorphism, Composition, Abstraction, 
+                                    Recursion, High-Order, Lambda, ADT, Filter, Equality, Stream, MVC, Defensive Programming, I/O)
+*/
+
+/*
+    Demo Process;
+    
+    1. 
+
+ */
 
 public class Driver {
     public static <T> void main(String[] args) {

@@ -14,7 +14,7 @@ public class Employee extends People {
     protected PeopleType peopleType;
     protected Date date;
 
-
+    // constructor for employee who make attendance, has attendance Date
     public Employee(String name, DepartType department, Date date, PeopleType peopleType) {
         super(name, department, date, peopleType);
         this.name = name;
@@ -22,7 +22,7 @@ public class Employee extends People {
         this.date = date;
         this.peopleType = peopleType;
     }
-
+    // constructor for employee who doesn't make attendance
     public Employee(String name, DepartType department, PeopleType peopleType){
         super(name, department, peopleType);
         this.name = name;
@@ -30,6 +30,7 @@ public class Employee extends People {
         this.peopleType = peopleType;
     }
 
+    // getters
     @Override
     public Date getDate() {return date;}
 
@@ -46,7 +47,7 @@ public class Employee extends People {
     protected void setName(String name) {
         this.name = name;
     }
-
+    // tostring can print out head with date or without date (haven't made attendance yet)
     @Override
     public String toString(){
         if (date == null) {
@@ -57,6 +58,7 @@ public class Employee extends People {
         }
     }
 
+    // make attendance for employee itself
     @Override
     protected void makeAttendance(DoublyLinkedList<People> attendees) {
         try {
