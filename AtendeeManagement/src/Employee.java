@@ -17,17 +17,25 @@ public class Employee extends People {
     // constructor for employee who make attendance, has attendance Date
     public Employee(String name, DepartType department, Date date, PeopleType peopleType) {
         super(name, department, date, peopleType);
-        this.name = name;
-        this.department = department;
-        this.date = date;
-        this.peopleType = peopleType;
+        try {
+            this.name = name;
+            this.department = department;
+            this.date = date;
+            this.peopleType = peopleType;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid input for employee constructor");
+        }
     }
     // constructor for employee who doesn't make attendance
-    public Employee(String name, DepartType department, PeopleType peopleType){
+    public Employee(String name, DepartType department, PeopleType peopleType) {
         super(name, department, peopleType);
-        this.name = name;
-        this.department = department;
-        this.peopleType = peopleType;
+        try {
+            this.name = name;
+            this.department = department;
+            this.peopleType = peopleType;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid input for employee constructor");
+        }
     }
 
     // getters

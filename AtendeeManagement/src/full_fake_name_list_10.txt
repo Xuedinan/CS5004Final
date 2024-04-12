@@ -1,13 +1,13 @@
-Benjamin Watson&Sales&HR
-John Rodriguez&Sales&HR
-Megan Lopez&Sales&HR
+Benjamin Watson&HRDEPART&HR
+John Rodriguez&Sales&EMPLOYEE
+Megan Lopez&HRDEPART&HR
 Cynthia Wolfe&Sales&EMPLOYEE
 Jill Clayton MD&Sales&EMPLOYEE
 James Ayala&Sales&HEAD
 Jesse Robinson&Sales&HEAD
-Savannah White&Sales&HR
+Savannah White&HRDEPART&HR
 Kristine Roberts&Sales&EMPLOYEE
-Timothy Adams&Marketing&HEAD
+Timothy Adams&Marketing&EMPLOYEE
 Sara Pope&HRDEPART&EMPLOYEE
 William Hernandez&HRDEPART&EMPLOYEE
 Carla Miller&SALES&EMPLOYEE
