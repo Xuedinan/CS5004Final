@@ -42,3 +42,75 @@ Semester: 2024 Spring
 
 -  Sample file for Employee list ("full_fake_name_list_10.txt" / "full_fake_name_list_100.txt" )
 -  Sample file for Attendee list ("attendees_fake_name_list_10.txt" )
+
+## :star: Major functional methods / People Methods List
+
+Employee
+    - Getters for attributes
+    - Make attendance
+
+    Head
+    - Getters for attributes
+    - Make attendance
+    - Advanced methods for Head
+
+        // change HEAD and HR own date
+        void changeOwnDate(Date date);
+
+        // change date for input employee
+        void changeEmployeeDate(People employee, Date date);
+
+        // remove employee from company employee list
+        // head can only remove employee in the same department
+        void removeEmployee(People employee);
+        
+        // add employee from company employee list
+        // head can only add employee in the same department
+        void addEmployee(T employee);
+
+        // set employee's name when they are in the department
+        void setEmployeeName(People employee, String name);
+
+        // change other department's employee to head's department
+        void setDepartment(People employee, DepartType targetDepart);
+
+        // make attendance for employee when they are in the same department
+        void makeEmployeeAttendance(People employee);
+
+        // checking for expiration date
+        DoublyLinkedList<T> filterOwnDepartment();
+        
+        // checking for task status
+        DoublyLinkedList<T> filterDate(Date date);
+
+        // get total employee numbers
+        int totalDepartEmployees();
+
+        // get total attendees number for certain department
+        int totalAttendees();
+
+    HR
+    - Getters for attributes
+    - Make attendance
+    - Advanced methods for HR (Add on to all Head methods)
+
+        // promote employee to HEAD
+        void addHead(People employee);
+
+        // demote HEAD to employee
+        void removeHead(People employee);
+
+        // generate all head list from whole company employee list
+        void createHeadList();
+
+        // get whole company's attendees
+        void checkAllAttendees();
+
+        // get all employee with certain company wise
+        DoublyLinkedList<T> filterAllByLevel(PeopleType type);
+
+        // get whole employee number
+        int totalCompanyEmployees();
+        
+        //get each department employees
+        DoublyLinkedList<T> filterByDepartment(DepartType type);
