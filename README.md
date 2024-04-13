@@ -31,7 +31,7 @@ Semester: 2024 Spring
         - Company employee list, doesn't has Date
         - Attendees list, has Date
 
-    - Generic Double linked list class and Operation Class
+    - Generic Doubly linked list class and Operation Class
         - DoublyLinkedList Class
         - AttendanceTool Class, MVC
 
@@ -114,3 +114,44 @@ Semester: 2024 Spring
         
         //get each department employees
         DoublyLinkedList<T> filterByDepartment(DepartType type);
+        
+## :star: Concept MAP
+  - Inheritance and Abstraction
+    - People abstract classes with extended children classes (Employee, HR, DepartHead)
+```
+// Department Head class, can only operate employee in the same department
+public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T> {
+
+    // list to hold whole company employees
+    DoublyLinkedList<T> people;
+    // list to hold attendees
+    DoublyLinkedList<T> attendees;
+
+    private String name;
+    private DepartType department;
+    private PeopleType peopleType;
+    private Date date;
+```
+// HR class, has the biggest power to operate whole company employees, include head
+public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRTool<T>{
+    
+    // list to hold whole company employees
+    protected DoublyLinkedList<T> people;
+    // list to hold attendees
+    protected DoublyLinkedList<T> attendees;
+    // array to hold all department HEAD only
+    protected ArrayList<People> headList = new ArrayList<>();
+
+    private String name;
+    private DepartType department;
+    private PeopleType peopleType;
+    private Date date;
+```
+ // employee only can change name, and get information for themselves
+
+public class Employee extends People {
+
+    protected String name;
+    protected DepartType department;
+    protected PeopleType peopleType;
+    protected Date date;
