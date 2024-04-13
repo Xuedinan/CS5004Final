@@ -263,7 +263,8 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
 ```
   - :earth_asia: **ADT and Genreic Class**
     - Using Doubly linked list with head and tail sentinel (DoublyLinkedList class)
-    - Put node inside ADT as inner class
+    - Using ArrayList to store HEAD list (HR class)
+    - Put node inside ADT as an inner class
     - DoublyLinkedList class is a generic class
 ```
  // Generic doubly linked list class
