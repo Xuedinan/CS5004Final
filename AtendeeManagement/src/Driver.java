@@ -4,10 +4,8 @@
  * Assignment: Final
  * Name: Xuedinan Gao
  */
-
-// ====>  The major goal of whole program is to track each employee's attendance of the whole company employees. <====
-// ====>                       People have Date attribute means they made an attendance                          <====
-
+// ====>  The major goal of whole program is to track/manipulate each employee's attendance of the whole company employees. <====
+// ====>                             People have Date attribute means they made an attendance                               <====
 /*  
     <<<< Key Features; >>>>
 
@@ -30,88 +28,13 @@
         - Company employee list, doesn't has Date
         - Attendees list, has Date
 
-    - Generic Double linked list class and Operation Class
+    - Generic Doubly linked list class and Operation Class
         - DoublyLinkedList Class
         - AttendanceTool Class, MVC
 
     - Covered different concepts (Inheritance, Polymorphism, Composition, Abstraction, 
                                     Recursion, High-Order, Lambda, ADT, Filter, Equality, Stream, MVC, Defensive Programming, I/O)
 */
-
-/*
-    <<<< People Methods List; >>>>
-
-    Employee
-    - Getters for attributes
-    - Make attendance
-
-    Head
-    - Getters for attributes
-    - Make attendance
-    - Advanced methods for Head
-
-        // change HEAD and HR own date
-        void changeOwnDate(Date date);
-
-        // change date for input employee
-        void changeEmployeeDate(People employee, Date date);
-
-        // remove employee from company employee list
-        // head can only remove employee in the same department
-        void removeEmployee(People employee);
-        
-        // add employee from company employee list
-        // head can only add employee in the same department
-        void addEmployee(T employee);
-
-        // set employee's name when they are in the department
-        void setEmployeeName(People employee, String name);
-
-        // change other department's employee to head's department
-        void setDepartment(People employee, DepartType targetDepart);
-
-        // make attendance for employee when they are in the same department
-        void makeEmployeeAttendance(People employee);
-
-        // checking for expiration date
-        DoublyLinkedList<T> filterOwnDepartment();
-        
-        // checking for task status
-        DoublyLinkedList<T> filterDate(Date date);
-
-        // get total employee numbers
-        int totalDepartEmployees();
-
-        // get total attendees number for certain department
-        int totalAttendees();
-
-    HR
-    - Getters for attributes
-    - Make attendance
-    - Advanced methods for HR (Add on to all Head methods)
-
-        // promote employee to HEAD
-        void addHead(People employee);
-
-        // demote HEAD to employee
-        void removeHead(People employee);
-
-        // generate all head list from whole company employee list
-        void createHeadList();
-
-        // get whole company's attendees
-        void checkAllAttendees();
-
-        // get all employee with certain company wise
-        DoublyLinkedList<T> filterAllByLevel(PeopleType type);
-
-        // get whole employee number
-        int totalCompanyEmployees();
-        
-        //get each department employees
-        DoublyLinkedList<T> filterByDepartment(DepartType type);
- */
-
 /*
     <<<< Demo Process; >>>>
 
@@ -163,13 +86,12 @@ public class Driver {
 
         ////////////////// Get basic information
 
-        System.out.println("\n////////////////// Get basic information\n");
+        System.out.println("\n////////////////// Get basic information (de-comment methods to print out)\n");
         System.out.println("----- Check all employees -----\n");
-        employeeList.printList(); // employee don't have attendance date yet
+        // employeeList.printList(); // employee don't have attendance date yet (de-comment to print out)
 
         System.out.println("----- Check all current attendees -----\n");
-        attendeeList.printList(); // attendees have attendance date
-
+        // attendeeList.printList(); // attendees have attendance date (de-comment to print out)
 
         ////////////////// Start Demo
 
