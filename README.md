@@ -499,3 +499,5 @@ Attended date: 4/4/2024
 
 cut off the list to save space.....
 ```
+## :star: Academic Integrity Statement
+![image](https://github.com/Xuedinan/CS5004Final/assets/144306521/33833daf-1139-4655-9ac8-61b139563741)
