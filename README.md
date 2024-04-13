@@ -300,7 +300,24 @@ public class DoublyLinkedList<T> {
     - Generic ADT class
       
 ## :star: Demo Process
-
+```
+    1. Create basic objects for testing (employee list, attendee list, Employee, Head, HR)
+    2. Print out basic information (Employees & Current Attendees) for record
+    3. Head to get own department employees
+    4. Head to get own department attendees
+    5. Head make a attendance for a employee
+        - only can operate own department employee
+        - provide notification for unqualified employee
+    6. Head check updated attendee list
+    7. Head remove a employee from own department
+        - only can operate own department employee
+        - provide notification for unqualified employee
+    8. HR to get all HEAD list of whole company
+    9. HR promote a Employee to HEAD
+    10. HR filter People Type (Employee only) list of whole company
+    11. HR filter Department Type (HR Department only) list of whole company
+    12. HR get whole company attendees
+```
 ```
 ////////////////// Start Demo
 
@@ -479,43 +496,5 @@ Department: SALES
 Level: HR
 Attended date: 4/4/2024
 
-name: John Rodriguez
-Department: SALES
-Level: HR
-Attended date: 1/14/2024
-
-name: Megan Lopez
-Department: SALES
-Level: HR
-Attended date: 2/23/2024
-
-name: Cynthia Wolfe
-Department: SALES
-Level: EMPLOYEE
-Attended date: 5/24/2024
-
-name: Jill Clayton MD
-Department: MARKETING
-Level: EMPLOYEE
-Attended date: 12/4/2024
-
-name: James Ayala
-Department: SALES
-Level: HEAD
-Attended date: 4/1/2024
-
-name: Jesse Robinson
-Department: SALES
-Level: HEAD
-Attended date: 8/4/2024
-
-name: Savannah White
-Department: MARKETING
-Level: HR
-Attended date: 7/5/2024
-
-name: Timothy Adams
-Department: MARKETING
-Level: EMPLOYEE
-Attended date: 2/23/2024
+cut off the list to save space.....
 ```
