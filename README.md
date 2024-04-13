@@ -119,6 +119,14 @@ Semester: 2024 Spring
   - Inheritance and Abstraction
     - People abstract classes with extended children classes (Employee, HR, DepartHead)
 ```
+ // employee only can change name, and get information for themselves
+public class Employee extends People {
+
+    protected String name;
+    protected DepartType department;
+    protected PeopleType peopleType;
+    protected Date date;
+```
 // Department Head class, can only operate employee in the same department
 public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T> {
 
@@ -131,7 +139,6 @@ public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T
     private DepartType department;
     private PeopleType peopleType;
     private Date date;
-
 ```
 // HR class, has the biggest power to operate whole company employees, include head
 public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRTool<T>{
@@ -148,10 +155,3 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
     private PeopleType peopleType;
     private Date date;
 ```
- // employee only can change name, and get information for themselves
-public class Employee extends People {
-
-    protected String name;
-    protected DepartType department;
-    protected PeopleType peopleType;
-    protected Date date;
