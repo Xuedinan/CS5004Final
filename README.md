@@ -242,3 +242,46 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
         return filteredList;
     }
 ```
+  - :earth_asia: **Stream**
+    - Using Stream in the HR class (addHead method)
+```
+    // provide a employee to department head
+    @Override
+    public void addHead(People employee) {
+        // check if input employee is existing in head list
+        boolean isHeadAlready = headList.stream()
+                                        .anyMatch(person -> person.getName().equals(employee.getName()));
+        // if exist, can't add
+        if (isHeadAlready) {
+            System.out.println(employee.getName() + " is a department HEAD already");
+        } else {
+            employee.peopleType = PeopleType.HEAD;
+            headList.add(employee); // add to head list
+            System.out.println("Added " + employee.name + " to HEAD list. ");
+        }
+    }
+```
+  - :earth_asia: **ADT**
+    - Using Doubly linked list with head and tail sentinel (DoublyLinkedList class)
+    - Put node inside ADT as inner class
+```
+ // Generic doubly linked list class
+public class DoublyLinkedList<T> {
+
+    // node inner class to store value
+    static class  Node<T> {
+        Node<T> prev; // previous node
+        T people; // people
+        Node<T> next; // next node
+
+        // constructor
+        public Node(DoublyLinkedList.Node<T> prev, T people, DoublyLinkedList.Node<T> next) {
+            this.prev = prev;
+            this.people = people;
+            this.next = next;
+        }
+    }
+    
+    protected Node<T> llHead; // head sentinel of linked list
+    protected Node<T> llTail; // tail sentinel of linked list
+```
