@@ -158,7 +158,7 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
     private Date date;
 ```
   - :earth_asia: **Polymorphism**
-    - Most mehods in the tool interfacese are taking People object, however, in the impletment method, I'm using Employee objects
+    - Most mehods in the tool interfacese are taking People object, however, in the impletment method, I'm using Employee objects (HRTool, HeadTool Interfaces)
 ```
     // change other department's employee to head's department
     void setDepartment(People employee, DepartType targetDepart);
@@ -175,11 +175,36 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
         People emPeople3 = new Employee("Superman", DepartType.SALES, PeopleType.HEAD);
 ```
   - :earth_asia: **Composition**
-    - Using AttendanceTool class to load data from local file then composite with DoublyLinkedList class to create list
+    - Using AttendanceTool class to load data from local file then composite with DoublyLinkedList class to create list (In Driver)
 ```
 // create to I/O attendee list and employee list
         AttendanceTool ft = new AttendanceTool();
 
         // create employee list
         DoublyLinkedList<People> employeeList = ft.readPeopleFromFile("full_fake_name_list_10.txt");
+```
+  - :earth_asia: **Recursion**
+    - Using recursion helper to iterate Doubly linked list (DoublyLinkedList class)
+```
+    // find index for input people name by recursion
+    public int findIndexByPeople(People target) {
+        // start searching
+        int index = recursiveFindIndexByPeople(target, llHead.next, 0);
+        if (index == -1) {
+        }
+        return index;
+    }
+    // helper method to check each node
+    private int recursiveFindIndexByPeople(People target, Node<T> currentNode, int currentIndex) {
+        // base case when reach to tail
+        if (currentNode == llTail) {
+            return -1; // return to -1 when not find
+        }
+        // check if name is matching
+        if (((People) currentNode.people).getName().trim().replaceAll("\\s+", " ").equalsIgnoreCase(target.getName().trim().replaceAll("\\s+", " "))) {
+            return currentIndex;
+        }
+        // recursive check next
+        return recursiveFindIndexByPeople(target, currentNode.next, currentIndex + 1);
+    }
 ```
