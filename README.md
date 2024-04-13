@@ -37,6 +37,8 @@ Semester: 2024 Spring
 
     - Covered different concepts (Inheritance, Polymorphism, Composition, Abstraction, 
                                     Recursion, High-Order, Lambda, ADT, Filter, Equality, Stream, MVC, Defensive Programming, I/O)
-UML
+## :star: UML Program of UML
 ![image](https://github.com/Xuedinan/CS5004Final/assets/144306521/ddc5765b-4df4-4b0d-8e80-ec9ba024b498)
 
+-  Sample file for Employee list ("full_fake_name_list_10.txt" / "full_fake_name_list_100.txt" )
+-  Sample file for Attendee list ("attendees_fake_name_list_10.txt" )
