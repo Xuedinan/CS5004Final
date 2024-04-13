@@ -126,7 +126,7 @@ public class Employee extends People {
     protected DepartType department;
     protected PeopleType peopleType;
     protected Date date;
-
+```
 ```
 // Department Head class, can only operate employee in the same department
 public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T> {
