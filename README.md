@@ -5,7 +5,7 @@ Name: Xuedinan(Dinan) Gao\
 Semester: 2024 Spring
 
 ## Program Overview
-- The major goal of the whole program is to track each employee's attendance of the whole company employees.
+- **The major goal of the whole program is to track each employee's attendance of the whole company employees.**
   - People have Date attribute means they made an attendance
 
 UML
