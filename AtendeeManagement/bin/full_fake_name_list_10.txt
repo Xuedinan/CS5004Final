@@ -1,0 +1,20 @@
+Benjamin Watson&HRDEPART&HR
+John Rodriguez&Sales&EMPLOYEE
+Megan Lopez&HRDEPART&HR
+Cynthia Wolfe&Sales&EMPLOYEE
+Jill Clayton MD&Sales&EMPLOYEE
+James Ayala&Sales&HEAD
+Jesse Robinson&Sales&HEAD
+Savannah White&HRDEPART&HEAD
+Kristine Roberts&Sales&EMPLOYEE
+Timothy Adams&Marketing&EMPLOYEE
+Sara Pope&HRDEPART&EMPLOYEE
+William Hernandez&HRDEPART&EMPLOYEE
+Carla Miller&SALES&EMPLOYEE
+Bonnie Morrison&SALES&HEAD
+Carl Castillo&SALES&EMPLOYEE
+Karen Carey&HRDEPART&EMPLOYEE
+Christian Larson&MARKETING&HEAD
+Crystal Johnson&HRDEPART&EMPLOYEE
+Nicholas Clark&SALES&EMPLOYEE
+Kelly Richmond&MARKETING&EMPLOYEE

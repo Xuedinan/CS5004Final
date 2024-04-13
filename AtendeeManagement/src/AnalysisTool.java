@@ -5,6 +5,7 @@
  * Name: Xuedinan Gao
  */
 
+ // This is a interface for Head and HR to manipulate the employee list and attendance list
 public interface AnalysisTool<T> {
 
 	// checking for expiration date
