@@ -45,7 +45,7 @@ Semester: 2024 Spring
 
 ## :star: Major functional methods / People Methods List
 
-Employee
+    Employee
     - Getters for attributes
     - Make attendance
 
