@@ -1,9 +1,18 @@
+/*
+ * Course: CS5004
+ * Semester: Spring 2024
+ * Assignment: Final
+ * Name: Xuedinan Gao
+ */
+
+// this is a date class that will use for employee to make attendance
+
 public class Date {
     
     private int month;
     private int day;
     private int year;
-    
+    // date must after 01/01/2023
     public Date(int month, int day, int year) {
         // set date after 01/01/2023
         try {

@@ -55,6 +55,7 @@ public class Employee extends People {
     protected void setName(String name) {
         this.name = name;
     }
+    
     // tostring can print out head with date or without date (haven't made attendance yet)
     @Override
     public String toString(){

@@ -9,7 +9,7 @@
 // ====>                       People have Date attribute means they made an attendance                          <====
 
 /*  
-    Key Features;
+    <<<< Key Features; >>>>
 
     - Three different department (Sales, Marketing, HR)
         - DepartType ENUM
@@ -39,7 +39,7 @@
 */
 
 /*
-    People Methods List;
+    <<<< People Methods List; >>>>
 
     Employee
     - Getters for attributes
@@ -49,6 +49,7 @@
     - Getters for attributes
     - Make attendance
     - Advanced methods for Head
+
         // change HEAD and HR own date
         void changeOwnDate(Date date);
 
@@ -88,6 +89,7 @@
     - Getters for attributes
     - Make attendance
     - Advanced methods for HR (Add on to all Head methods)
+
         // promote employee to HEAD
         void addHead(People employee);
 
@@ -111,7 +113,7 @@
  */
 
 /*
-    Demo Process;
+    <<<< Demo Process; >>>>
 
     1. Create basic objects for testing (employee list, attendee list, Employee, Head, HR)
     2. Print out basic information (Employees & Current Attendees) for record
@@ -210,7 +212,6 @@ public class Driver {
         System.out.println("\n");
         hr.printCurrentHead();
         System.out.println("\n");
-
 
         System.out.println("----- HR filter People Type for  === Employees only === list -----\n");
         DoublyLinkedList<People> hrEmployeelist = hr.filterAllByLevel(PeopleType.EMPLOYEE);
