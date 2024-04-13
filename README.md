@@ -295,3 +295,227 @@ public class DoublyLinkedList<T> {
         return new IllegalArgumentException(String.format("index[%d] is invalid", index));
     }
 ```
+  - :earth_asia: **Apply SOLID principle**
+    - Based on different types of people, separate methods into multiple interfaces
+    - Generic ADT class
+      
+## :star: Demo Process
+
+```
+////////////////// Start Demo
+
+----- Head check own department  === Employees === with total 3 employees, Head1 from Marketing -----
+
+name: Timothy Adams
+Department: MARKETING
+Level: EMPLOYEE
+
+name: Christian Larson
+Department: MARKETING
+Level: HEAD
+
+name: Kelly Richmond
+Department: MARKETING
+Level: EMPLOYEE
+
+----- Head check own department === Attendees === with total 2 employees, Head1 from Marketing -----
+
+name: Jill Clayton MD
+Department: MARKETING
+Level: EMPLOYEE
+Attended date: 12/4/2024
+
+name: Savannah White
+Department: MARKETING
+Level: HR
+Attended date: 7/5/2024
+
+----- Head try to make attendance to employees -----
+
+Made a attendance for employee Timothy Adams
+
+Superman is not our employee. Can't update. 
+
+----- Head check own department attendees with total 3 employees, Head1 from Marketing -----
+
+name: Jill Clayton MD
+Department: MARKETING
+Level: EMPLOYEE
+Attended date: 12/4/2024
+
+name: Savannah White
+Department: MARKETING
+Level: HR
+Attended date: 7/5/2024
+
+name: Timothy Adams
+Department: MARKETING
+Level: EMPLOYEE
+Attended date: 2/23/2024
+
+----- Head try to remove employee from own department -----
+
+Employee Timothy Adams has been removed.
+
+Superman is not our employee.
+
+
+----- Head get own department employees again -----
+
+name: Christian Larson
+Department: MARKETING
+Level: HEAD
+
+name: Kelly Richmond
+Department: MARKETING
+Level: EMPLOYEE
+
+----- HR get all HEAD list -----
+
+James Ayala is HEAD of SALES
+Jesse Robinson is HEAD of SALES
+Savannah White is HEAD of HRDEPART
+Bonnie Morrison is HEAD of SALES
+Christian Larson is HEAD of MARKETING
+
+
+----- HR Promote a Employee to HEAD -----
+
+Added Jill Clayton MD to HEAD list. 
+
+
+James Ayala is HEAD of SALES
+Jesse Robinson is HEAD of SALES
+Savannah White is HEAD of HRDEPART
+Bonnie Morrison is HEAD of SALES
+Christian Larson is HEAD of MARKETING
+Jill Clayton MD is HEAD of SALES
+
+
+----- HR filter People Type for  === Employees only === list -----
+
+name: John Rodriguez
+Department: SALES
+Level: EMPLOYEE
+
+name: Cynthia Wolfe
+Department: SALES
+Level: EMPLOYEE
+
+name: Jill Clayton MD
+Department: SALES
+Level: EMPLOYEE
+
+name: Kristine Roberts
+Department: SALES
+Level: EMPLOYEE
+
+name: Sara Pope
+Department: HRDEPART
+Level: EMPLOYEE
+
+name: William Hernandez
+Department: HRDEPART
+Level: EMPLOYEE
+
+name: Carla Miller
+Department: SALES
+Level: EMPLOYEE
+
+name: Carl Castillo
+Department: SALES
+Level: EMPLOYEE
+
+name: Karen Carey
+Department: HRDEPART
+Level: EMPLOYEE
+
+name: Crystal Johnson
+Department: HRDEPART
+Level: EMPLOYEE
+
+name: Nicholas Clark
+Department: SALES
+Level: EMPLOYEE
+
+name: Kelly Richmond
+Department: MARKETING
+Level: EMPLOYEE
+
+----- HR filter Department Type === HR Department === only list -----
+
+name: Benjamin Watson
+Department: HRDEPART
+Level: HR
+
+name: Megan Lopez
+Department: HRDEPART
+Level: HR
+
+name: Savannah White
+Department: HRDEPART
+Level: HEAD
+
+name: Sara Pope
+Department: HRDEPART
+Level: EMPLOYEE
+
+name: William Hernandez
+Department: HRDEPART
+Level: EMPLOYEE
+
+name: Karen Carey
+Department: HRDEPART
+Level: EMPLOYEE
+
+name: Crystal Johnson
+Department: HRDEPART
+Level: EMPLOYEE
+
+----- HR get whole company attendees -----
+
+name: Benjamin Watson
+Department: SALES
+Level: HR
+Attended date: 4/4/2024
+
+name: John Rodriguez
+Department: SALES
+Level: HR
+Attended date: 1/14/2024
+
+name: Megan Lopez
+Department: SALES
+Level: HR
+Attended date: 2/23/2024
+
+name: Cynthia Wolfe
+Department: SALES
+Level: EMPLOYEE
+Attended date: 5/24/2024
+
+name: Jill Clayton MD
+Department: MARKETING
+Level: EMPLOYEE
+Attended date: 12/4/2024
+
+name: James Ayala
+Department: SALES
+Level: HEAD
+Attended date: 4/1/2024
+
+name: Jesse Robinson
+Department: SALES
+Level: HEAD
+Attended date: 8/4/2024
+
+name: Savannah White
+Department: MARKETING
+Level: HR
+Attended date: 7/5/2024
+
+name: Timothy Adams
+Department: MARKETING
+Level: EMPLOYEE
+Attended date: 2/23/2024
+```
