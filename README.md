@@ -139,6 +139,7 @@ public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T
     private DepartType department;
     private PeopleType peopleType;
     private Date date;
+    
 ```
 // HR class, has the biggest power to operate whole company employees, include head
 public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRTool<T>{
@@ -154,4 +155,3 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
     private DepartType department;
     private PeopleType peopleType;
     private Date date;
-```
