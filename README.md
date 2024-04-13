@@ -157,3 +157,20 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
     private PeopleType peopleType;
     private Date date;
 ```
+  - Polymorphism
+    - Most mehods in the tool interfacese are taking People object, however, in the impletment method, I'm using Employee objects
+```
+    // change other department's employee to head's department
+    void setDepartment(People employee, DepartType targetDepart);
+
+    // make attendance for employee when they are in the same department
+    void makeEmployeeAttendance(People employee, Date date);
+```
+![image](https://github.com/Xuedinan/CS5004Final/assets/144306521/6fb5743a-4d1b-4d08-b9c5-e8e0fb0bac77)
+  - Also using polymorphism in the Driver
+```
+        // create employee (without input date)
+        People emPeople1 = new Employee("Timothy Adams", DepartType.MARKETING, PeopleType.EMPLOYEE);
+        People emPeople2 = new Employee("Jill Clayton MD", DepartType.SALES, PeopleType.EMPLOYEE);
+        People emPeople3 = new Employee("Superman", DepartType.SALES, PeopleType.HEAD);
+```
