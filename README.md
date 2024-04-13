@@ -183,8 +183,9 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
         // create employee list
         DoublyLinkedList<People> employeeList = ft.readPeopleFromFile("full_fake_name_list_10.txt");
 ```
-  - :earth_asia: **Recursion**
+  - :earth_asia: **Recursion and Equality**
     - Using recursion helper to iterate Doubly linked list (DoublyLinkedList class)
+    - Using Equality in all methods when matching String (DepartHead class, HR class)
 ```
     // find index for input people name by recursion
     public int findIndexByPeople(People target) {
@@ -206,5 +207,38 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
         }
         // recursive check next
         return recursiveFindIndexByPeople(target, currentNode.next, currentIndex + 1);
+    }
+```
+  - :earth_asia: **Lambda and Filter method**
+    - Using Lambda expression in all *Filter* methods (DepartHead class and HR class)
+```
+    // check own department attendees number
+    public DoublyLinkedList<T> filterOwnDepartmentAttendee() {
+        // check if department is the same
+        Predicate<T> isDepart = employee -> ((People) employee).getDepartment().equals(department);
+        // return a filtered list
+        return attendees.filterByPredicate(isDepart);
+    }
+
+    // get all attendees in the same date and only for this department
+    @Override
+    public DoublyLinkedList<T> filterDate(Date date) {
+        // check if date is match
+        Predicate<T> sameDate = employee -> ((People) employee).getDate().equals(date) && ((People) employee).getDepartment().equals(department);
+        return attendees.filterByPredicate(sameDate);
+    }
+```
+```
+    // filter list by provided predicate
+    public DoublyLinkedList<T> filterByPredicate(Predicate<T> predicate) {
+        DoublyLinkedList<T> filteredList = new DoublyLinkedList<>();
+        Node<T> currentNode = llHead.next;
+        while (currentNode != llTail) { // Iterate through the list
+            if (predicate.test(currentNode.people)) { // Check if the current node matches the predicate
+                filteredList.addLast(currentNode.people); // Add matching elements to the new list
+            }
+            currentNode = currentNode.next; // Move to the next node
+        }
+        return filteredList;
     }
 ```
