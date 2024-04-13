@@ -116,7 +116,7 @@ Semester: 2024 Spring
         DoublyLinkedList<T> filterByDepartment(DepartType type);
         
 ## :star: Concept MAP
-  - Inheritance and Abstraction
+  - :earth_asia: **Inheritance and Abstraction**
     - People abstract classes with extended children classes (Employee, HR, DepartHead)
 ```
  // employee only can change name, and get information for themselves
@@ -157,7 +157,7 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
     private PeopleType peopleType;
     private Date date;
 ```
-  - Polymorphism
+  - :earth_asia: **Polymorphism**
     - Most mehods in the tool interfacese are taking People object, however, in the impletment method, I'm using Employee objects
 ```
     // change other department's employee to head's department
@@ -173,4 +173,13 @@ public class HR<T> extends People implements HeadTool<T>, AnalysisTool<T>, HRToo
         People emPeople1 = new Employee("Timothy Adams", DepartType.MARKETING, PeopleType.EMPLOYEE);
         People emPeople2 = new Employee("Jill Clayton MD", DepartType.SALES, PeopleType.EMPLOYEE);
         People emPeople3 = new Employee("Superman", DepartType.SALES, PeopleType.HEAD);
+```
+  - :earth_asia: **Composition**
+    - Using AttendanceTool class to load data from local file then composite with DoublyLinkedList class to create list
+```
+// create to I/O attendee list and employee list
+        AttendanceTool ft = new AttendanceTool();
+
+        // create employee list
+        DoublyLinkedList<People> employeeList = ft.readPeopleFromFile("full_fake_name_list_10.txt");
 ```
