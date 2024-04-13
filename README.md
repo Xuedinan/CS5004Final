@@ -92,7 +92,7 @@ Semester: 2024 Spring
     HR
     - Getters for attributes
     - Make attendance
-    - Advanced methods for HR (Add on to all Head methods)
+    - Advanced methods for HR (On top of all Head methods)
 
         // promote employee to HEAD
         void addHead(People employee);
