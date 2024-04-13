@@ -286,3 +286,12 @@ public class DoublyLinkedList<T> {
     protected Node<T> llHead; // head sentinel of linked list
     protected Node<T> llTail; // tail sentinel of linked list
 ```
+  - :earth_asia: **Defensive Programming**
+    - All methods that have user interaction handling exceptions (DepartHead class, HR class, DoublyLinked class, AttendanceTool class)
+    - One of the example from DoublyLinkedList class
+```
+    // helper method to throw exception
+    private IllegalArgumentException illegalIndex(int index){
+        return new IllegalArgumentException(String.format("index[%d] is invalid", index));
+    }
+```
