@@ -28,7 +28,7 @@ public class AttendanceTool {
                 people.addLast(employee); // Add the object to the list
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Consider more specific error handling
+            System.out.println("Can't read people from employee file"); // Consider more specific error handling
         }
         return people;
     }
@@ -45,7 +45,6 @@ public class AttendanceTool {
             DepartType depart = DepartType.valueOf(parts[1].toUpperCase());
             // get people level
             PeopleType peopleType = PeopleType.valueOf(parts[2].toUpperCase());
-
             // create new employee
             return new Employee(name, depart, peopleType);
         } else {
@@ -63,7 +62,7 @@ public class AttendanceTool {
                 attendees.addLast(employee); // Add the object to the list
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Consider more specific error handling
+            System.out.println("Can't read people from attendees file");
         }
         return attendees;
     }
@@ -110,13 +109,12 @@ public class AttendanceTool {
                                  current.people.getDate() + "\n";  // added newline for formatting
                     // Write the string to file
                     out.write(str);
-                    
                 }
                 current = current.next;
             }
             out.close();
         } catch (IOException e) {
-            System.err.println("Can't writing to attendees file: " + e.getMessage());
+            System.err.println("Can't writing to attendees file: ");
             }
         }
 }
