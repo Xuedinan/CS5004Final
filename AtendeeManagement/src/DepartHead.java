@@ -144,7 +144,14 @@ public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T
         // return a filtered list
         return people.filterByPredicate(isDepart);
     }
-    
+    // check own department attendees number
+    public DoublyLinkedList<T> filterOwnDepartmentAttendee() {
+        // check if department is the same
+        Predicate<T> isDepart = employee -> ((People) employee).getDepartment().equals(department);
+        // return a filtered list
+        return attendees.filterByPredicate(isDepart);
+    }
+
     // get all attendees in the same date and only for this department
     @Override
     public DoublyLinkedList<T> filterDate(Date date) {
@@ -155,16 +162,16 @@ public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T
     // get total attendees number
     @Override
     public int totalAttendees() {
-        return attendees.countNodes();
+        return filterOwnDepartmentAttendee().countNodes();
     }
     // head make a attendance for own department employee
     @SuppressWarnings("unchecked")
     @Override
-    public void makeEmployeeAttendance(People employee) {
+    public void makeEmployeeAttendance(People employee, Date date) {
         try {
             int num = people.findIndexByPeople(employee);
             if (num == -1) { // return -1 means we can't find the employee in whole list
-                throw new IllegalArgumentException("\n" + employee.getName() + " is not our employee. Can't update name. ");
+                throw new IllegalArgumentException("\n" + employee.getName() + " is not our employee. Can't update. ");
             }
             
             if (!employee.getDepartment().equals(department)) {
@@ -173,7 +180,8 @@ public class DepartHead<T> extends People implements HeadTool<T>, AnalysisTool<T
                 return;
             }
             // If we get here, the employee is in the department and can be updated name.
-            attendees.addLast((T) employee);
+            People tmp = new Employee(employee.name, employee.department, date, employee.peopleType);
+            attendees.addLast((T) tmp);
             System.out.println("Made a attendance for employee " + employee.getName());
 
         } catch (IllegalArgumentException e) {

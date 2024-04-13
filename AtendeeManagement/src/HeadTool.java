@@ -29,5 +29,5 @@ public interface HeadTool<T> {
     void setDepartment(People employee, DepartType targetDepart);
 
     // make attendance for employee when they are in the same department
-    void makeEmployeeAttendance(People employee);
+    void makeEmployeeAttendance(People employee, Date date);
 }

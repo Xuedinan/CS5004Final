@@ -40,7 +40,6 @@ public class DoublyLinkedList<T> {
         // start searching
         int index = recursiveFindIndexByPeople(target, llHead.next, 0);
         if (index == -1) {
-            System.out.println("Person not found.");
         }
         return index;
     }

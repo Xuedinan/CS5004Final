@@ -5,7 +5,7 @@ Cynthia Wolfe&Sales&EMPLOYEE
 Jill Clayton MD&Sales&EMPLOYEE
 James Ayala&Sales&HEAD
 Jesse Robinson&Sales&HEAD
-Savannah White&HRDEPART&HR
+Savannah White&HRDEPART&HEAD
 Kristine Roberts&Sales&EMPLOYEE
 Timothy Adams&Marketing&EMPLOYEE
 Sara Pope&HRDEPART&EMPLOYEE

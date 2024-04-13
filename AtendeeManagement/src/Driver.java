@@ -108,14 +108,27 @@
         
         //get each department employees
         DoublyLinkedList<T> filterByDepartment(DepartType type);
-
  */
 
 /*
     Demo Process;
 
     1. Create basic objects for testing (employee list, attendee list, Employee, Head, HR)
-
+    2. Print out basic information (Employees & Current Attendees) for record
+    3. Head to get own department employees
+    4. Head to get own department attendees
+    5. Head make a attendance for a employee
+        - only can operate own department employee
+        - provide notification for unqualified employee
+    6. Head check updated attendee list
+    7. Head remove a employee from own department
+        - only can operate own department employee
+        - provide notification for unqualified employee
+    8. HR to get all HEAD list of whole company
+    9. HR promote a Employee to HEAD
+    10. HR filter People Type (Employee only) list of whole company
+    11. HR filter Department Type (HR Department only) list of whole company
+    12. HR get whole company attendees
  */
 
 public class Driver {
@@ -126,7 +139,7 @@ public class Driver {
         // create employee (without input date)
         People emPeople1 = new Employee("Timothy Adams", DepartType.MARKETING, PeopleType.EMPLOYEE);
         People emPeople2 = new Employee("Jill Clayton MD", DepartType.SALES, PeopleType.EMPLOYEE);
-        People emPeople3 = new Employee("Failed name", DepartType.SALES, PeopleType.HEAD);
+        People emPeople3 = new Employee("Superman", DepartType.SALES, PeopleType.HEAD);
 
         // create dates for later use
         Date date1 = new Date(2, 23, 2024);
@@ -146,68 +159,69 @@ public class Driver {
         DepartHead<People> head1 = new DepartHead<>("Christian Larson", DepartType.MARKETING, date1, PeopleType.HEAD, employeeList, attendeeList);
         HR<People> hr = new HR<>("Megan Lopez", DepartType.HRDEPART, date2, PeopleType.HR, employeeList, attendeeList);
 
-        ////////////////// Demo
+        ////////////////// Get basic information
 
-        // employeeList.printList(); de-comment to see list
-        // attendeeList.printList(); de-comment to see list
+        System.out.println("\n////////////////// Get basic information\n");
+        System.out.println("----- Check all employees -----\n");
+        employeeList.printList(); // employee don't have attendance date yet
 
-
-
-//         // DepartHead<People> head1 = new DepartHead<>("Tom", DepartType.SALES, date1, PeopleType.HEAD, test1, attendees);
-
-//         // head1.removeEmployee(tp);
-
-//         People ppp = new Employee("Marketing yoyo", DepartType.MARKETING, PeopleType.EMPLOYEE);
+        System.out.println("----- Check all current attendees -----\n");
+        attendeeList.printList(); // attendees have attendance date
 
 
-//         // DoublyLinkedList<People> headlist = head1.filterOwnDepartment();
+        ////////////////// Start Demo
 
-//         // head1.attendees.printList();
-//         // test1.printList();
+        System.out.println("\n////////////////// Start Demo\n");
+        int headnum = head1.totalDepartEmployees();
+        System.out.println("----- Head check own department  === Employees === with total " + headnum + " employees, Head1 from Marketing -----\n");
+        DoublyLinkedList<People> head1List = head1.filterOwnDepartment();
+        head1List.printList();
 
-//         DoublyLinkedList<People> test2 = ft.readAttendees("attendees_fake_name_list_10.txt");
-//         // test2.printList();
-//         // attpeople.printList();
-//         // DepartHead<People> head2 = new DepartHead<>("Tom", DepartType.SALES, date1, PeopleType.HEAD, test1, test2);
-// //         // attpeople.printList();
-//         HR<People> hr = new HR<>("HR TEST", DepartType.HRDEPART, date2, PeopleType.HR, test1, test2);
-// //         System.out.println(head2.getDepartment());
-// //         Employee tim = new Employee("Timothy Adams", DepartType.SALES, date2, PeopleType.EMPLOYEE);
-// //         // head2.makeEmployeeAttendance(tim);
-//                 // attpeople.printList();
-//         Employee kris = new Employee("Kristine Roberts", DepartType.SALES, date2, PeopleType.EMPLOYEE);
-//                         test2.printList();
+        int headAtten1 = head1.totalAttendees();
+        System.out.println("----- Head check own department === Attendees === with total " + headAtten1 + " employees, Head1 from Marketing -----\n");
+        DoublyLinkedList<People> head1Attendee = head1.filterOwnDepartmentAttendee();
+        head1Attendee.printList();
 
-//                 hr.makeEmployeeAttendance(kris);
-//                                 test2.printList();
+        System.out.println("----- Head try to make attendance to employees -----\n");
+        head1.makeEmployeeAttendance(emPeople1, date1);
+        head1.makeEmployeeAttendance(emPeople3, date3);
 
-        // System.out.println(kris.getName()); 
-//                 // hr.attendees.printList();
-        // hr.people.printList();
-                // hr.makeEmployeeAttendance(kris);
-                // head2.makeEmployeeAttendance(kris);
-        // System.out.println(test1.findIndexByPeople(kris));
-        // test1.printList();
-        // test1.printList();
-// // // Kristine Roberts&Sales&EMPLOYEE&2024/05/03
+        int headAtten2 = head1.totalAttendees();
+        System.out.println("\n----- Head check own department attendees with total " + headAtten2 + " employees, Head1 from Marketing -----\n");
+        DoublyLinkedList<People> head1updatedAttendee = head1.filterOwnDepartmentAttendee();
+        head1updatedAttendee.printList();
 
-//         kris.makeAttendance(attpeople);
-        // test2.printList();
+        System.out.println("----- Head try to remove employee from own department -----\n");
+        head1.removeEmployee(emPeople1);
+        head1.removeEmployee(emPeople3);
+        DoublyLinkedList<People> head1updatedEmployee = head1.filterOwnDepartment();
+        System.out.println("\n");
 
-//         // DoublyLinkedList<People> newAttendees = ft.readAttendees("attendees_fake_name_list_10.txt");
-//         // newAttendees.printList();
-        // hr.attendees.printList();
-// // //         // attpeople.printList();
+        System.out.println("----- Head get own department employees again -----\n");
+        head1updatedEmployee.printList();
 
-        // ft.writeAttendeesFile("attendees_fake_name_list_10.txt", attpeople);
-// //         head2.attendees.printList();
+        System.out.println("----- HR get all HEAD list -----\n");
+        hr.createHeadList();
+        hr.printCurrentHead();
+        System.out.println("\n");
 
-// // head2.attendees.printList();
-// hr.attendees.printList();
-
-//         ft.writeAttendeesFile("attendees_fake_name_list_10.txt", attpeople);
+        System.out.println("----- HR Promote a Employee to HEAD -----\n");
+        hr.addHead(emPeople2);
+        System.out.println("\n");
+        hr.printCurrentHead();
+        System.out.println("\n");
 
 
+        System.out.println("----- HR filter People Type for  === Employees only === list -----\n");
+        DoublyLinkedList<People> hrEmployeelist = hr.filterAllByLevel(PeopleType.EMPLOYEE);
+        hrEmployeelist.printList();
+
+        System.out.println("----- HR filter Department Type === HR Department === only list -----\n");
+        DoublyLinkedList<People> hrDepartmentList = hr.filterByDepartment(DepartType.HRDEPART);
+        hrDepartmentList.printList();
+
+        System.out.println("----- HR get whole company attendees -----\n");
+        hr.checkAllAttendees();
 
     }
 }
